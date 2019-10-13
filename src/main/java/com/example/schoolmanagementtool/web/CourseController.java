@@ -30,6 +30,12 @@ public class CourseController {
 	@Autowired
 	private EnrollmentsDAO enrollmentsDAO;
     
+	// Login
+    @RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
+	
     @RequestMapping(value="/courselist")
     public String courseList(Model model) {	
         // Fetch all courses
