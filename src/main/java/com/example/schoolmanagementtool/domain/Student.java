@@ -4,11 +4,13 @@ public class Student {
     private long id;
     private String firstName;
     private String lastName;
+    private int grade;
     
     public Student () {
         this.id = 0;
         this.firstName = null;
         this.lastName = null;
+        this.grade = 0;
     }
 
     public Student (long id, String firstName, String lastName) {
@@ -16,14 +18,16 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    
-    public Student (String firstName, String lastName) {
-        this.id = 0;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
       
-    public long getId() {
+    public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
+	public long getId() {
 		return id;
 	}
 
@@ -50,8 +54,8 @@ public class Student {
 	@Override
     public String toString() {
         return String.format(
-                "Person[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                "Person[id=%d, firstName='%s', lastName='%s', grade='%s']",
+                id, firstName, lastName, grade);
     }
 
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Courselist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+<body>
+	<h1>Courses</h1>
+    <table class="table table-striped">
+		<tr><th>Id</th><th>Name</th><th>StartTime</th><th>EndTime</th><th>ClassRoom</th><th></th></tr>
+		<tr th:each="course : ${courses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.startTime}"></td>
+			<td th:text="${course.endTime}"></td>
+			<td th:text="${course.classRoom}"></td>
+			<td>
+				<a class="btn btn-secondary" th:href="@{/editcourse/{id}(id=${course.id})}">Edit</a>
+				<a class="btn btn-danger" th:href="@{/deletecourse/{id}(id=${course.id})}">Delete</a>
+				<a class="btn btn-info" th:href="@{/managecourse/{id}(id=${course.id})}">Manage</a>		
+			</td>
+		</tr>
+	</table>
+<a class="btn btn-success"href="/addcourse">Add a new course</a>
+</body>
+</html>

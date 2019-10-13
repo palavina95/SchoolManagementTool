@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Course</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css"rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" /> 
+</head>
+<body>
+	<h1>
+		<span th:text="${course.name}"></span><span> course</span>
+	</h1>
+	<form th:action="@{../confirmgrading}" action="#" method="post">
+		<input type="hidden" id="courseId" name="courseId" th:value="${course.id}">
+	<table class="table table-striped">
+		<tr><th>Id</th><th>Firstname</th><th>Lastname</th><th>Grade</th></tr>
+		<tr th:each="student : ${students}">
+			<td th:text="${student.id}"></td>
+			<td th:text="${student.firstName}"></td>
+			<td th:text="${student.lastName}"></td>
+			<td>
+				<input th:id="${'customGrade'+student.id}" type="number" name="grades" min="0" max="5" th:value="${student.grade}">
+			</td>
+		</tr>
+	</table>
+	<button type="submit" class="btn btn-success">Confirm grading for this course</button>
+	</form>
+</body>
+</html>

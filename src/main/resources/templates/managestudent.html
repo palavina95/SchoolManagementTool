@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css"rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" /> 
+</head>
+<body>
+	<h1>
+		<span th:text="${student.firstName}"></span>
+		<span th:text="${student.lastName}"></span><span>'s courses</span>
+	</h1>
+	<form th:action="@{../enroll}" action="#" method="post">
+		<input type="hidden" id="studentId" name="studentId" th:value="${student.id}">
+	<table class="table table-striped">
+		<tr><th>Id</th><th>Name</th><th>StartTime</th><th>EndTime</th><th>ClassRoom</th><th>Click to enroll</th><th>Grades</th></tr>
+		<tr th:each="course : ${courses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.startTime}"></td>
+			<td th:text="${course.endTime}"></td>
+			<td th:text="${course.classRoom}"></td>
+			<td>
+				<div class="custom-control custom-checkbox">
+				  <input type="checkbox" th:checked="${course.enrolled}" th:disabled="${course.grade != 0}" class="custom-control-input" th:id="${'customCheck'+course.id}" name="courseEnrolled" th:value="${course.id}">
+				  <label class="custom-control-label" th:for="${'customCheck'+course.id}"></label>
+				</div>
+			</td>
+			<td th:if="${course.grade != 0}" th:text="${course.grade}">
+			<td th:unless="${course.grade != 0}" th:text="${'Not graded'}">
+		</tr>
+	</table>
+	<button type="submit" class="btn btn-success">Confirm enrollment</button>
+	</form>
+</body>
+</html>
