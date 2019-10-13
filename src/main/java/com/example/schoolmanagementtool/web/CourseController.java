@@ -118,7 +118,7 @@ public class CourseController {
   		return (List<Course>)courseDAO.findAll();
   	}
   	
-  //Restful service to get all grades from one student
+  	//Restful service to get all grades from one student
   	@RequestMapping(value="/grades",method=RequestMethod.GET)
   	public @ResponseBody List<Enrollments>gradesFromStudentListRest(@RequestParam(value="studentId",defaultValue="1")Long studentId){ 
   		return (List<Enrollments>)enrollmentsDAO.findAllfromStudent(studentId);
