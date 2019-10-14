@@ -120,6 +120,25 @@ public class StudentController {
   	public @ResponseBody List<Student>studentListRest(){ 
   		return (List<Student>)studentDAO.findAll();
   	}
+  	
+  //Restful service to get all courses from one student
+  	@RequestMapping(value="/mycourses/{id}",method=RequestMethod.GET)
+  	public @ResponseBody List<Course>courseListRest(@PathVariable("id") long studentId){ 
+  
+  		List<Course> current = courseDAO.findAll();
+  		List<Enrollments> currentEnroll = enrollmentsDAO.findAllfromStudent(studentId);
+  		for(int i=0;i<current.size();i++) {
+  			for(int j=0;j<currentEnroll.size();j++) {
+  				if(currentEnroll.get(j).getCourse_id() == current.get(i).getId()) {
+  					current.get(i).setEnrolled(true);
+  		  			current.get(i).setGrade(currentEnroll.get(j).getGrade());
+  					break;
+  				}
+  			}
+  		};
+  		
+  		return current;
+  	}
 }
  
 

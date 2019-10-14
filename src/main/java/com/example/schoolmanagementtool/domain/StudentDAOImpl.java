@@ -27,7 +27,6 @@ public class StudentDAOImpl implements StudentDAO {  // Impl = Implementation cl
 				student.getLastName() };
 
 		jdbcTemplate.update(sql, parameters);
-
 	}
 
 	public Student findOne(long id) {

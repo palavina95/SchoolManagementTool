@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.example.schoolmanagementtool.domain.CourseDAOImpl;
 import com.example.schoolmanagementtool.domain.StudentDAOImpl;
 import com.example.schoolmanagementtool.domain.User;
 import com.example.schoolmanagementtool.domain.UserRepository;
@@ -19,7 +20,7 @@ public class SchoolmanagementtoolApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(StudentDAOImpl studentDAO, UserRepository urepository) {
+	public CommandLineRunner demo() {
 		return (args) -> {
 			/*
 			// Create users: admin/admin user/user

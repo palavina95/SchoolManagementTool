@@ -29,6 +29,13 @@ public class User {
 		this.passwordHash = passwordHash;
 		this.role = role;
 	}
+	
+	public User(String username, String passwordHash, String role, Long secret) {
+		super();
+		this.username = username;
+		this.passwordHash = passwordHash;
+		this.role = role;
+	}
 
 	public Long getId() {
 		return id;

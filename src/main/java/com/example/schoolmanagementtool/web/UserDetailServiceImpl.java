@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import com.example.schoolmanagementtool.domain.User;
 import com.example.schoolmanagementtool.domain.UserRepository;
 
-
-
 /**
  * This class is used by spring security to authenticate and authorize user
  **/

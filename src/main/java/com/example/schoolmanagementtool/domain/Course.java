@@ -26,6 +26,13 @@ public class Course {
 		this.classRoom = classRoom;
 	}
 	
+	public Course(String name, String startTime, String endTime, String classRoom) {
+		this.name = name;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.classRoom = classRoom;
+	}
+	
 	public int getGrade() {
 		return grade;
 	}
