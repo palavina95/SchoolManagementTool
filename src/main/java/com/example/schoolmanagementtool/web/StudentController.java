@@ -121,7 +121,7 @@ public class StudentController {
   		return (List<Student>)studentDAO.findAll();
   	}
   	
-  //Restful service to get all courses from one student
+  	//Restful service to get all courses from one student
   	@RequestMapping(value="/mycourses/{id}",method=RequestMethod.GET)
   	public @ResponseBody List<Course>courseListRest(@PathVariable("id") long studentId){ 
   
